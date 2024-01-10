@@ -2,6 +2,7 @@
   "name": "abc-lang",
   "displayName": "Abc Lang",
   "description": "Syntax highlighting for abc lang",
+  "repository": "https://github.com/captaaint/demo-vscode-extension",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.85.0"
