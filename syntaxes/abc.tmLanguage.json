@@ -1,0 +1,87 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Abc",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#tags"
+		}
+	],
+	"repository": {
+		"tags": {
+			"patterns": [
+				{
+					"name": "tag.component.abc",
+					"begin": "(</?)([A-Za-z0-9]+:)?([A-Z][A-Za-z0-9]+)",
+					"captures": {
+						"0": { "name": "punctuation.definition.tag.abc" },
+						"1": {"name": "punctuation.definition.tag.component.namespace.abc"},
+						"2": {
+							"name": "punctuation.definition.tag.component.abc"
+						}
+					},
+					"end": "(/?>)",
+					"patterns": [
+						{
+							"include": "#comments"
+						}
+					]
+				},
+				{
+					"name": "tag.helper.abc",
+					"begin": "(</?)([A-Za-z0-9]+:)?([a-z][A-Za-z0-9]+)",
+					"captures": {
+						"0": { "name": "punctuation.definition.tag.abc" },
+						"1": {
+							"name": "punctuation.definition.tag.helper.abc"
+						}
+					},
+					"end": "(/?>)",
+					"patterns": [
+						{
+							"include": "#comments"
+						}
+					]
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.abc",
+					"begin": "<!--",
+					"end": "-->",
+					"captures": {
+						"0": { "name": "punctuation.definition.comment.abc" }
+					}
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.abc",
+				"match": "\\b(if|while|for|return)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.abc",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.abc",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.abc"
+}
